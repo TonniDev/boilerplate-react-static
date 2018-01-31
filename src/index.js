@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import Template from './Template';
 import App from './App';
+// import DevTools from './containers/DevTools';
 
 /* Client render (optional) */
 if (typeof document !== 'undefined') {

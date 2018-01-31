@@ -33,7 +33,10 @@ const Template = (props) => {
 };
 
 Template.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 };
 
 export default Template;

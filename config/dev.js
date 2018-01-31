@@ -10,12 +10,13 @@ const rules = {
     {
       test: /\.js$/,
       use: ['source-map-loader'],
-      enforce: "pre"
+      enforce: 'pre',
+      exclude: '/node_modules/'
     },
     {
       test: /\.js$/,
       use: 'babel-loader',
-      exclude: `/node_modules/`
+      exclude: '/node_modules/'
     },
     {
       test: /\.(jpg|png|svg)/,
