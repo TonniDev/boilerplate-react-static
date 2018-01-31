@@ -1,0 +1,15 @@
+{
+  "presets": ["react", "stage-0", "env"],
+  "plugins": ["syntax-dynamic-import", "transform-es2015-modules-commonjs"],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types",
+        {
+          "mode": "wrap",
+          "removeImport": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+node_modules/
+src/index.js
+src/App.js
+src/routes.js
+src/ss_routes.js
+src/actions/
+src/reducers/
+src/store/
+src/middleware/
+src/containers/
+stories
+src/stories/
+*.stories.js
+
+### other files ###
+build/
+.storybook/
+static-site*
+.vscode
