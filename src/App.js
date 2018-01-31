@@ -26,5 +26,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export {App};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

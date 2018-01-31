@@ -12,7 +12,7 @@ const devConf = require('./config/dev');
 const ROOT_PATH = '/';
 
 module.exports = {
-  entry: './src/index',
+  entry: './src/index.js',
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
