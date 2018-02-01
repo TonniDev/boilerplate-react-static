@@ -3,23 +3,20 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { ThemeProvider } from 'styled-components'
-import MinhaOi from '../../../config/themes/MinhaOi'
-
-import Grid from './../Grid'
+import {MinhaOi} from '../../../containers/themes'
 import Title from './../Title'
-import Text from './../Text'
 
 storiesOf('Atoms/Title', module)
 .add('Uso simples',
     withInfo({
-        text: 'Componente dos elementos de título HTML (h1 ao h6).', 
+        text: 'Componente dos elementos de título HTML (h1 ao h6).',
     })(() =>
         <Title type={1}>Título de exemplo</Title>
     )
 )
 .add('ThemeProvider',
 withInfo({
-    text: 'Cores aplicadas direto do tema.', 
+    text: 'Cores aplicadas direto do tema.',
 })(() =>
 <ThemeProvider theme={ MinhaOi }>
     <div>
@@ -40,7 +37,7 @@ withInfo({
 )
 .add('FontSize',
 withInfo({
-    text: 'Todos os tamanhos de título disponíveis no StyleGuide. Todos estes tamanhos podem ser aplicados do h1 ao h6.', 
+    text: 'Todos os tamanhos de título disponíveis no StyleGuide. Todos estes tamanhos podem ser aplicados do h1 ao h6.',
 })(() =>
 
     <div>
@@ -57,7 +54,7 @@ withInfo({
 )
 .add('FontWeight',
 withInfo({
-    text: 'Todos as espessuras de fonte.', 
+    text: 'Todos as espessuras de fonte.',
 })(() =>
 
     <div>
@@ -70,7 +67,7 @@ withInfo({
 )
 .add('Gradiente',
     withInfo({
-        text: 'Componente de título com cores em gradiente.', 
+        text: 'Componente de título com cores em gradiente.',
     })(() =>
         <Title
         gradient={{

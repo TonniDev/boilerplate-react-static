@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { prop, ifProp, switchProp } from 'styled-tools'
 
-import * as m from '../../styles/mixins'
-import List from './../../atoms/List'
 import Text from './../../atoms/Text'
-import * as styles from './form.styles'
-
 
 const StyledCheck = styled.input.attrs({
     type: 'checkbox'

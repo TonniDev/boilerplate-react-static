@@ -3,11 +3,6 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { prop, ifProp, switchProp } from 'styled-tools'
 
-import * as m from '../../styles/mixins'
-import Grid from './../../atoms/Grid'
-import Icon from './../../atoms/Icon'
-import Text from './../../atoms/Text'
-
 import FormInput from './form.input'
 import FormSelect from './form.select'
 import FormRadio from './form.radio'
@@ -23,15 +18,15 @@ class Form extends Component {
     constructor(props) {
         super(props)
     }
-    
+
     render() {
         return (
-            <FormWrapper {...this.props} 
+            <FormWrapper {...this.props}
                 onSubmit={this.props.onSubmit}>
                 {this.props.children}
             </FormWrapper>
         )
-   
+
     }
 }
 

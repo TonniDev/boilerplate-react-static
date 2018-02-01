@@ -1,4 +1,6 @@
 import React from 'react';
+import {StaticRouter, BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
 import {storiesOf, configure, addDecorator, setAddon} from '@storybook/react';
 import infoAddon, {setDefaults} from '@storybook/addon-info';
 import {setConsoleOptions} from '@storybook/addon-console';

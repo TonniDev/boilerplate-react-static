@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ThemeProvider} from 'styled-components';
 import * as Actions from './actions';
-import {Theme} from './config/Theme';
+import {Default} from './containers/themes';
 import Routes from './routes';
 
 class App extends React.Component {
   render() {
     return (
-      <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={Default}>
         <Routes />
       </ThemeProvider>
     );
