@@ -1,4 +1,4 @@
-const { ROOT_PATH } = require('./common');
+const { ROOT_PATH } = require('../common');
 
 var path = require('path');
 const pathName = path.resolve(__dirname , "..")

@@ -1,4 +1,4 @@
-const {ROOT_PATH} = require('./common');
+const {ROOT_PATH} = require('../common');
 
 const path = require('path');
 

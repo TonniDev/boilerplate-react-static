@@ -1,6 +1,6 @@
 module.exports = {
   routes: [
     '/',
-    '/rota1'
+    '/exemplo'
   ]
 };

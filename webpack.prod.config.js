@@ -8,8 +8,8 @@ const Dotenv = require('dotenv-webpack');
 const ss = require('./src/ss_routes');
 
 //FIXME: move ROOT_PATH to process.env from dotenv-webpack
-const { ROOT_PATH } = require('./config/common');
-const prodConf = require('./config/prod');
+const { ROOT_PATH } = require('./private/common');
+const prodConf = require('./private/webpack/prod');
 
 module.exports = {
     entry: {

@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const ss = require('./src/ss_routes');
-const devConf = require('./config/dev');
+const devConf = require('./private/webpack/dev');
 
 const ROOT_PATH = '/';
 

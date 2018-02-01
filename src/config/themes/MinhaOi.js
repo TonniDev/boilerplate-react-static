@@ -1,13 +1,13 @@
-const LightPurple = {
+const MinhaOi = {
     body: {
         bg: '#FFFFFF',
         color: '#900AE9',
         margin: '0',
-        padding: '0', 
+        padding: '0',
         font: {
             family: 'Simplon',
             weight: '300'
-      
+
         }
     },
     colors: {
@@ -21,9 +21,9 @@ const LightPurple = {
         dark: '#900AE9',
         link: '#900AE9'
     },
-    gradients: 
+    gradients:
     {
-        primary: 
+        primary:
         {
             from: '#222222',
             to: '#FFFFFF'
@@ -62,5 +62,5 @@ const LightPurple = {
         }
     }
 }
-  export default LightPurple
-  export { LightPurple }
+  export default MinhaOi
+  export { MinhaOi }

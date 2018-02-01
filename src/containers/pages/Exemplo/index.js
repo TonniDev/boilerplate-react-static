@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Rota1 = () => (
+const Exemplo = () => (
     <div>Hi from inside!</div>
 );
 
-export default Rota1
+export default Exemplo
