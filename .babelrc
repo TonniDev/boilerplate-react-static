@@ -1,5 +1,5 @@
 {
-  "presets": ["react", "stage-0", "env"],
+  "presets": ["react", "stage-0", "env", "es2015"],
   "plugins": ["syntax-dynamic-import", "transform-es2015-modules-commonjs"],
   "env": {
     "production": {

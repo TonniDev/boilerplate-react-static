@@ -13,8 +13,11 @@
   "author": "TonniDev",
   "license": "MIT",
   "dependencies": {
+    "ComponentsOi": "git+https://github.com/OiSA/ComponentsOi.git",
     "bluebird": "^3.5.1",
     "history": "^4.7.2",
+    "immutable": "^3.8.2",
+    "lodash.isfunction": "^3.0.8",
     "polished": "^1.9.0",
     "react": "^16.2.0",
     "react-code-splitting": "^1.2.1",
@@ -46,6 +49,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.12",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "browser-sync": "^2.18.13",
@@ -81,6 +85,7 @@
     "storybook-addon-specifications": "^2.1.1",
     "style-loader": "^0.19.1",
     "webpack": "^3.5.5",
+    "webpack-bundle-analyzer": "^2.10.0",
     "webpack-dev-server": "^2.7.1"
   }
 }

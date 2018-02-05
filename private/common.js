@@ -1,3 +1,3 @@
 module.exports = {
-  ROOT_PATH : "/",
+  ROOT_PATH : "./",
 }

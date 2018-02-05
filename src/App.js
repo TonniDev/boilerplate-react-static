@@ -5,12 +5,26 @@ import {ThemeProvider} from 'styled-components';
 import * as Actions from './actions';
 import {Default} from './containers/themes';
 import Routes from './routes';
+import './config/styles/global-styles';
 
 class App extends React.Component {
   render() {
     return (
       <ThemeProvider theme={Default}>
-        <Routes />
+        <div id="inner">
+
+          <header>
+            <nav>
+              <a href="/">Home</a>
+              <a href="/exemplo">Exemplo</a>
+            </nav>
+          </header>
+
+          <Routes />
+
+
+
+        </div>
       </ThemeProvider>
     );
   }

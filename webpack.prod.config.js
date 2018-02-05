@@ -29,10 +29,16 @@ module.exports = {
           path: './.env',
           safe: true,
         }),
-        new CopyWebpackPlugin([{
+        new CopyWebpackPlugin([
+          {
             from: '/src/assets/**/*',
-            to: '/dist' + ROOT_PATH + 'assets/[name].[ext]'
-        }]),
+            to: `${ROOT_PATH}assets/[name].[ext]`
+          },
+          {
+            from: './node_modules/ComponentsOi/dist/assets/fonts/*',
+            to: `${ROOT_PATH}assets/fonts/[name].[ext]`
+          }
+        ]),
         new webpack.DefinePlugin({
             'process.env': {
               // This has effect on the react lib size

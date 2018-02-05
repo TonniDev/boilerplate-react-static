@@ -1,6 +1,9 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {Home, Exemplo} from './containers/pages';
+import {
+  Home,
+  Exemplo
+} from './containers/pages';
 
 const Routes = () => {
   return (

@@ -1,79 +1,43 @@
-import { CALL_API, CHAIN_API } from './../middleware/api'
-import { browserHistory } from 'react-router'
+import {CALL_API, CHAIN_API} from './../middleware/api';
 
-export const LOADDED_TASKS = Symbol('LOADDED_TASKS') 
-export const LOADDED_TASKS_ERROR = Symbol('LOADDED_TASKS_ERROR') 
+export const GET_CITY = 'GET_CITY';
+export const GET_CITY_ERROR = 'GET_CITIES_ERROR';
 
-export const CREATED_TASK = Symbol('CREATED_TASK') 
-export const CREATED_TASK_ERROR = Symbol('CREATED_TASK_ERROR') 
+export const SET_CITY = 'SET_CITY';
+export const GET_CITIES_FROM_API = 'GET_CITIES_FROM_API';
+export const SELECT_CITY = 'SELECT_CITY';
 
-
-export const DELETED_TASK = Symbol('DELETED_TASK') 
-export const DELETED_TASK_ERROR = Symbol('DELETED_TASK_ERROR') 
-
-export function loadTasks(){
+export function getCity() {
   return (dispatch, getState) => {
+    const selectedCity = getState().Content.get("selectedCity");
+
     dispatch({
       [CHAIN_API]: [
-          ()=> {
-            return {
-              [CALL_API]: {
-                method: 'get',
-                type: 'external',
-                path: '/tasks',
-                successType: LOADDED_TASKS,
-                errorType: LOADDED_TASKS_ERROR
-              }
+        () => {
+          return {
+            [CALL_API]: {
+              method: 'get',
+              type: 'external',
+              path: '/city/search?limit=10&page=1&term=' + encodeURI(selectedCity),
+              successType: GET_CITIES_FROM_API,
+              errorType: GET_CITY_ERROR,
             }
-          }, (response) => {
-            console.log(response)
-          }
-        ]
-    })
-  }
-}
+          };
+        },
+        (payload) => {
+          console.log(payload);
+        }
+      ]
+    });
+  };
+};
 
-export function deleteTask(task){
-  return (dispatch, getState) => {
+export function selectCity(city) {
+  return (dispatch) => {
     dispatch({
-      [CHAIN_API]: [
-          ()=> {
-            return {
-              [CALL_API]: {
-                method: 'delete',
-                type: 'external',
-                path: '/task/delete/' + task.get('id'),
-                successType: DELETED_TASK,
-                errorType: DELETED_TASK_ERROR
-              }
-            }
-          }, (response) => {
-            console.log(response)
-            dispatch(loadTasks())
-          }
-        ]
-    })
+      type: SELECT_CITY,
+      city: city
+    });
+    dispatch(getCity());
   }
-}
-
-export function createTask(task){
-  return (dispatch, getState) => {
-    dispatch({
-      [CHAIN_API]: [
-          ()=> {
-            return {
-              [CALL_API]: {
-                method: 'post',
-                type: 'external',
-                path: '/task/create/' + task.title + '/' + task.description,
-                successType: CREATED_TASK,
-                errorType: CREATED_TASK_ERROR
-              }
-            }
-          }, (response) => {
-            dispatch(loadTasks())
-          }
-        ]
-    })
-  }
-}
+};

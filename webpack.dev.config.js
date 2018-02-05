@@ -5,11 +5,12 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const ss = require('./src/ss_routes');
 const devConf = require('./private/webpack/dev');
 
-const ROOT_PATH = '/';
+const { ROOT_PATH } = require('./private/common');
 
 module.exports = {
   entry: './src/index.js',
@@ -33,21 +34,24 @@ module.exports = {
         NODE_ENV: JSON.stringify('development')
       }
     }),
-    new CopyWebpackPlugin([{
-      from: '/src/assets/**/*',
-      to: '/dist' + ROOT_PATH + 'assets/[name].[ext]'
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: './node_modules/ComponentsOi/dist/assets/fonts/*',
+        to: `${ROOT_PATH}assets/fonts/[name].[ext]`
+      }
+    ]),
     new StaticSiteGeneratorPlugin({
       entry: 'main',
       paths: ss.routes
     }),
     new BrowserSyncPlugin({
       host: 'localhost',
-      port: 3300,
+      port: process.env.PORT || 8080,
       server: {
         baseDir: ['dist']
       }
-    })
+    }),
+    new BundleAnalyzerPlugin()
 
   ]
 };

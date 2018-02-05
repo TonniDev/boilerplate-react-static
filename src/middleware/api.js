@@ -1,6 +1,6 @@
 import superAgent from 'superagent';
 import Promise from 'bluebird';
-import _ from 'lodash';
+import isFunction from 'lodash.isfunction';
 import {camelizeKeys} from 'humps';
 import config from './../config';
 
@@ -30,9 +30,9 @@ function extractParams(callApi) {
   let url = '';
 
   if (type === 'internal') {
-    url = `${config.API_BASE_URL_INTERNAL}${path}`;
+    url = `${config.get("API_BASE_URL_INTERNAL")}${path}`;
   } else {
-    url = `${config.API_BASE_URL_EXTERNAL}${path}`;
+    url = `${config.get("API_BASE_URL_EXTERNAL")}${path}`;
   }
 
   return {
@@ -65,14 +65,13 @@ function createRequestPromise(apiActionCreator, next, getState, dispatch) {
             if (params.errorType) {
               dispatch(actionWith(apiAction, {
                 type: params.errorType,
-                message: res.body.error,
-                status: res.body.status,
+                message: res.error || null,
+                status: res.status,
                 statusCode: res.statusCode,
                 statusText: res.statusText
               }));
             }
-
-            if (_.isFunction(params.afterError)) {
+            if (isFunction(params.afterError)) {
               params.afterError({getState});
             }
             reject();
@@ -81,10 +80,9 @@ function createRequestPromise(apiActionCreator, next, getState, dispatch) {
             dispatch(actionWith(apiAction, {
               type: params.successType,
               response: resBody,
-              status: resBody.status
+              status: res.status
             }));
-
-            if (_.isFunction(params.afterSuccess)) {
+            if (isFunction(params.afterSuccess)) {
               params.afterSuccess({getState});
             }
             resolve(resBody);

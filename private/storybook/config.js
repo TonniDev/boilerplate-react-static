@@ -9,7 +9,7 @@ import {linkTo} from '@storybook/addon-links';
 import {specs, describe, it} from 'storybook-addon-specifications';
 import {mount} from 'enzyme';
 import expect from 'expect';
-import globalStyle from '../../src/components/styles/global-styles';
+import globalStyle from '../../src/config/styles/global-styles';
 
 const store = storiesOf({}, module);
 const req = require.context('../../src/components', true, /.stories.js$/);

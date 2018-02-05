@@ -4,6 +4,17 @@
 ## Descrição
 Template para páginas com rota.
 
+## .ENV
+Crie o arquivo .env na raiz do projeto.
+
+> exemplo de configuração básica
+
+```
+ENVIROMENT=dev
+ROOT_PATH=./
+PORT=8080
+```
+
 ##Comandos:
 1- construir app:
 ```npm run build```

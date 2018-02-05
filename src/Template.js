@@ -15,10 +15,11 @@ const Template = (props) => {
         <style>
           {
             `
-                #outlet {
-                  transition: opacity 0.35s ease-in-out;
-                }
-                `
+              #outlet {
+                transition: opacity 0.35s ease-in-out;
+                opacity: 0;
+              }
+            `
           }
         </style>
       </head>

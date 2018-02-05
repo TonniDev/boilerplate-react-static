@@ -2,28 +2,28 @@ import React, {Component} from 'react'
 import styled, {injectGlobal, css} from 'styled-components'
 import {prop, ifProp, switchProp} from 'styled-tools'
 
-import * as vars from './variables'
+import * as vars from '../../components/styles/variables'
 
 const breakpoint = vars.breakpoint;
 
 const rem = (number) => {
-  
+
   let tmp = number
   tmp = (typeof(number) === "string" && number.indexOf("px")) ? number.replace("px", "") : number;
   tmp = parseFloat(tmp)
-  
+
   return tmp / 16 + "rem"
-  
+
 }
 
 const subtract1Px = (number) => {
-  
+
   let tmp = number
   tmp = (typeof (number) === "string" && number.indexOf("px")) ? number.replace("px", "") : number;
   tmp = parseFloat(tmp)
-  
+
   return tmp - 1 + "px"
-  
+
 }
 
 const setSizes = (sizes) => {
@@ -90,7 +90,7 @@ const gradient = (direction, list) => {
     hex += k
     if (i != list.length - 1)
       hex += ', '
-    
+
   })
   return hex
 }
@@ -105,7 +105,7 @@ const checkTheme = (props) => {
 }
 
 const positionArrow = (sTarget, sPop) => {
-  
+
   console.log(sTarget, sPop)
   if (sTarget < sPop)
     return true
@@ -130,10 +130,10 @@ const fontWeight = (Weight) => {
   }
 }
 const getResponsiveImage = (url, size) => {
-  
+
   const path = url.split('.')
   return path[0] + size + '.' + path[1]
-  
+
 }
 
 export {

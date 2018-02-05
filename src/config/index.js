@@ -1,25 +1,27 @@
-import merge from 'lodash/merge';
+import {Map} from 'immutable';
 
-const config = {
+const baseConfig = {
   all: {
-    API_BASE_URL_EXTERNAL: process.env.API_BASE_URL_EXTERNAL || 'https://jsonplaceholder.typicode.com',
-    API_BASE_URL_INTERNAL: process.env.API_BASE_URL_INTERNAL || 'https://jsonplaceholder.typicode.com',
+    API_BASE_URL_EXTERNAL: process.env.API_BASE_URL_EXTERNAL || 'http://dpd.oiwip.com.br/api/v1',
+    API_BASE_URL_INTERNAL: process.env.API_BASE_URL_INTERNAL || 'http://dpd.oiwip.com.br/api/v1',
     env: process.env.NODE_ENV || 'development',
     isDev: process.env.NODE_ENV !== 'production',
     basename: process.env.PUBLIC_PATH,
     host: process.env.HOST || 'localhost',
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 8080,
     isBrowser: typeof window !== 'undefined',
     isServer: typeof window === 'undefined',
-    apiUrl: 'https://jsonplaceholder.typicode.com'
+    apiUrl: 'http://dpd.oiwip.com.br/api/v1'
   },
   test: {},
   development: {},
   production: {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 8080,
-    apiUrl: 'https://jsonplaceholder.typicode.com'
+    apiUrl: 'http://dpd.oiwip.com.br/api/v1'
   }
 };
 
-module.exports = merge(config.all, config[config.all.env]);
+const config = Map().merge(baseConfig.all, baseConfig[baseConfig.all.env]);
+
+module.exports = config;
