@@ -1,9 +1,6 @@
-const {ROOT_PATH} = require('../common');
-
 const path = require('path');
-
 const pathName = path.resolve(`${__dirname}/..`);
-const fileName = `${ROOT_PATH}assets/[name]-[hash:5].[ext]`;
+const fileName = `${process.env.ROOT_PATH}assets/[name]-[hash:5].[ext]`;
 
 const rules = {
   rules: [

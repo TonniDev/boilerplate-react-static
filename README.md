@@ -10,7 +10,7 @@ Crie o arquivo .env na raiz do projeto.
 > exemplo de configuração básica
 
 ```
-ENVIROMENT=dev
+ENVIRONMENT=dev
 ROOT_PATH=./
 PORT=8080
 ```

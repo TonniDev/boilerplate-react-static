@@ -1,52 +1,63 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
+import {Button, Title, Text} from 'ComponentsOi';
 import * as Actions from '../../../actions';
 
-import {Button, Title, Text} from 'ComponentsOi';
+import '../../../config/styles/global-styles';
 
 class Home extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.selectCity = this.selectCity.bind(this);
+  }
+  componentWillMount() {
+    this.props.selectCity('Rio de Janeiro');
+  }
+  selectCity(e) {
+    this.props.selectCity(e.target.getAttribute('data-city'));
   }
 
-  componentWillMount(){
-    this.props.selectCity("Rio de Janeiro");
-  }
-
-  render(){
-
+  render() {
     const {Content} = this.props;
 
-    return <div>
-      <Title>{Content.get("selectedCity")}</Title>
-      <p>
-        <Button className="botao01" onClick={this.props.selectCity.bind(this, "Recife PE")}>Trocar para Recife</Button>
-        <Button onClick={this.props.selectCity.bind(this, "São Paulo")}>Trocar para São Paulo</Button>
-        <Button onClick={this.props.selectCity.bind(this, "Rio de Janeiro")}>Trocar para Rio de Janeiro</Button>
-        <Button onClick={this.props.selectCity.bind(this, "Palmas")}>Trocar para Palmas</Button>
-      </p>
+    return (
+      <div>
+        <Title>{Content.get('selectedCity')}</Title>
+        <p data-foo="42">
+          <Button className="botao01" data-city="Recife PE" onClick={this.selectCity}>Trocar para Recife</Button>
+          <Button data-city="São Paulo" onClick={this.selectCity}>Trocar para São Paulo</Button>
+          <Button data-city="Rio de Janeiro" onClick={this.selectCity}>Trocar para Rio de Janeiro</Button>
+          <Button data-city="Palmas" onClick={this.selectCity}>Trocar para Palmas</Button>
+        </p>
 
-      <Title>Cidades: </Title>
-      <ul>
-        {
-          this.props.Content.get("cities").map((city, i) => {
-            return <li key={i}><Text>{city.name}</Text></li>
-          })
-        }
-      </ul>
-
-      </div>;
+        <Title>Cidades: </Title>
+        <ul>
+          {
+            this.props.Content.get('cities')
+              .map((city, i) => {
+                const key = i * (i + 3);
+                return <li key={key}><Text>{city.name}</Text></li>;
+              })
+          }
+        </ul>
+      </div>);
   }
+}
+
+Home.propTypes = {
+  Content: PropTypes.object,
+  selectCity: PropTypes.func
 };
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
   return {
     Content: state.Content
   };
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 

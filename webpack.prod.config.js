@@ -3,76 +3,66 @@ const webpack = require('webpack');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+
+require('dotenv').config();
 
 const ss = require('./src/ss_routes');
-
-//FIXME: move ROOT_PATH to process.env from dotenv-webpack
-const { ROOT_PATH } = require('./private/common');
-const prodConf = require('./private/webpack/prod');
+const conf = require('./private/webpack/prod');
 
 module.exports = {
-    entry: {
-      main: './src/index'
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        libraryTarget: 'umd',
-        library: "ProjectStarter"
-    },
-    devtool: "cheap-module-source-map",
-    module: prodConf,
-    plugins: [
-        new CleanWebpackPlugin('./dist'),
-        new Dotenv({
-          path: './.env',
-          safe: true,
-        }),
-        new CopyWebpackPlugin([
-          {
-            from: '/src/assets/**/*',
-            to: `${ROOT_PATH}assets/[name].[ext]`
-          },
-          {
-            from: './node_modules/ComponentsOi/dist/assets/fonts/*',
-            to: `${ROOT_PATH}assets/fonts/[name].[ext]`
-          }
-        ]),
-        new webpack.DefinePlugin({
-            'process.env': {
-              // This has effect on the react lib size
-              'NODE_ENV': JSON.stringify('production'),
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            comments: false, // remove comments
-            compress: {
-                warnings: false, // Suppress uglification warnings
-                pure_getters: true,
-                conditionals: true,
-                sequences: true,
-            		dead_code: true,
-            		booleans: true,
-            		unused: true,
-            		if_return: true,
-            		join_vars: true,
-            		drop_console: true
-            },
-            mangle: false,
-            sourceMap: true, /* fix issue on uglify */
-            output: {comments: false}
-        }),
-        new StaticSiteGeneratorPlugin('main', ss.routes, ss),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.IgnorePlugin(
-            /^\.\/locale$/,
-            [/moment$/]
-        ),
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
-    ]
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    libraryTarget: 'umd'
+  },
+  devtool: 'source-map',
+  module: conf,
+  plugins: [
+    new CleanWebpackPlugin('./dist'),
+    new CopyWebpackPlugin([
+      {
+        from: './node_modules/ComponentsOi/dist/assets/fonts/*',
+        to: `${process.env.ROOT_PATH}assets/fonts/[name].[ext]`
+      },
+      {
+        from: `${process.env.ROOT_PATH}src/assets/`,
+        to: `${process.env.ROOT_PATH}assets/`
+      }
+    ]),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      comments: false, // remove comments
+      compress: {
+        warnings: false, // Suppress uglification warnings
+        pure_getters: true,
+        conditionals: true,
+        sequences: true,
+        dead_code: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true
+      },
+      mangle: true,
+      sourceMap: true, /* fix issue on uglify */
+      output: {comments: false}
+    }),
+    new StaticSiteGeneratorPlugin({
+      entry: 'main',
+      paths: ss.routes
+    }),
+    new webpack.optimize.AggressiveMergingPlugin({
+      minSizeReduce: 1.5,
+      moveToParents: true
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.IgnorePlugin(
+      /^\.\/locale$/,
+      [/moment$/]
+    ),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
 };

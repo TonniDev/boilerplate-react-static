@@ -2,7 +2,7 @@ import superAgent from 'superagent';
 import Promise from 'bluebird';
 import isFunction from 'lodash.isfunction';
 import {camelizeKeys} from 'humps';
-import config from './../config';
+import {config} from './../config';
 
 export const CALL_API = Symbol('CALL_API');
 export const CHAIN_API = Symbol('CHAIN_API');
@@ -30,9 +30,9 @@ function extractParams(callApi) {
   let url = '';
 
   if (type === 'internal') {
-    url = `${config.get("API_BASE_URL_INTERNAL")}${path}`;
+    url = `${config.get('API_BASE_URL_INTERNAL')}${path}`;
   } else {
-    url = `${config.get("API_BASE_URL_EXTERNAL")}${path}`;
+    url = `${config.get('API_BASE_URL_EXTERNAL')}${path}`;
   }
 
   return {

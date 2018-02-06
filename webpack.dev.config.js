@@ -4,13 +4,12 @@ const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin'
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+
+require('dotenv').config();
 
 const ss = require('./src/ss_routes');
-const devConf = require('./private/webpack/dev');
-
-const { ROOT_PATH } = require('./private/common');
+const conf = require('./private/webpack/dev');
 
 module.exports = {
   entry: './src/index.js',
@@ -20,30 +19,29 @@ module.exports = {
     filename: 'bundle.js',
     libraryTarget: 'umd'
   },
-  module: devConf,
+  module: conf,
   watch: true,
   plugins: [
     new CleanWebpackPlugin('dist'),
-    new Dotenv({
-      path: './.env',
-      safe: true
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        // This has effect on the react lib size
-        NODE_ENV: JSON.stringify('development')
-      }
-    }),
     new CopyWebpackPlugin([
       {
         from: './node_modules/ComponentsOi/dist/assets/fonts/*',
-        to: `${ROOT_PATH}assets/fonts/[name].[ext]`
+        to: `${process.env.ROOT_PATH}assets/fonts/[name].[ext]`
+      },
+      {
+        from: `${process.env.ROOT_PATH}src/assets/`,
+        to: `${process.env.ROOT_PATH}assets/`
       }
     ]),
     new StaticSiteGeneratorPlugin({
       entry: 'main',
       paths: ss.routes
     }),
+    new webpack.optimize.AggressiveMergingPlugin({
+      minSizeReduce: 1.5,
+      moveToParents: true
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new BrowserSyncPlugin({
       host: 'localhost',
       port: process.env.PORT || 8080,
