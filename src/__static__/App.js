@@ -2,10 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ThemeProvider} from 'styled-components';
-import * as Actions from './actions';
-import {Default} from './containers/themes';
+import * as Actions from '../actions/index';
+import {Default} from '../containers/themes/index';
 import Routes from './routes';
-import './config/styles/global-styles';
+import '../config/styles/global-styles';
 
 class App extends React.Component {
   render() {

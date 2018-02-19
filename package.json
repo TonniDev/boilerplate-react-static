@@ -4,8 +4,10 @@
   "description": "Boilerplate with routes, redux and styled-components for react static",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack -w --config webpack.dev.config.js",
-    "build": "webpack --config webpack.prod.config.js -p",
+    "dev:static": "webpack -w --config webpack.dev.config.js",
+    "dev:standard": "webpack -w --config webpack.standard.config.js",
+    "build:static": "webpack --config webpack.prod.config.js -p",
+    "build:standard": "webpack --config webpack.prod.standard.config.js -p",
     "prepublish": "pkgfiles",
     "storybook": "start-storybook -p 6006 -c private/storybook",
     "build-storybook": "build-storybook -c private/storybook"

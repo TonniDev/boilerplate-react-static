@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
-import {Button, Title, Text} from 'ComponentsOi';
+import {Button, Title} from 'ComponentsOi';
+import {Text} from '../../../components';
 import * as Actions from '../../../actions';
 
 import '../../../config/styles/global-styles';
@@ -42,6 +43,11 @@ class Home extends React.Component {
               })
           }
         </ul>
+        <hr />
+        <hr />
+        <Text type="p">Some random text here.</Text>
+        <Text type="span">Some random text here.</Text>
+        <Text type="strong">Some random text here.</Text>
       </div>);
   }
 }

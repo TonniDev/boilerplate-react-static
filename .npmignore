@@ -1,8 +1,8 @@
 node_modules/
-src/index.js
-src/App.js
-src/routes.js
-src/ss_routes.js
+src/__static__/index.js
+src/__static__/App.js
+src/__static__/routes.js
+src/__static__/ss_routes.js
 src/actions/
 src/reducers/
 src/store/

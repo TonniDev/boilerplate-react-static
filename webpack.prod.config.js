@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 require('dotenv').config();
 
-const ss = require('./src/ss_routes');
+const ss = require('./src/__static__/ss_routes');
 const conf = require('./private/webpack/prod');
 
 module.exports = {

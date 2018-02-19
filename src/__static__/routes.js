@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import {
   Home,
   Exemplo
-} from './containers/pages';
+} from '../containers/pages/index';
 
 const Routes = () => {
   return (

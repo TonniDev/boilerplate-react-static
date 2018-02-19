@@ -1,4 +1,5 @@
 const path = require('path');
+
 const pathName = path.resolve(`${__dirname}/..`);
 const fileName = `${process.env.ROOT_PATH}assets/[name]-[hash:5].[ext]`;
 

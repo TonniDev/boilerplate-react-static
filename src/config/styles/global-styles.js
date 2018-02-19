@@ -1,7 +1,6 @@
 import {injectGlobal} from 'styled-components';
 import styledNormalize from 'styled-normalize';
 
-
 export default injectGlobal`
 ${styledNormalize}
 html {
@@ -15,6 +14,7 @@ html {
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
   box-sizing: border-box;
+  background-color: #fafafa;
 }
 *, *:before, *:after {
   box-sizing: inherit;

@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import store from './store';
+import store from '../store/index';
 import Template from './Template';
 import App from './App';
 // import DevTools from './containers/DevTools';

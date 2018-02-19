@@ -1,5 +1,5 @@
 ### User template
-build/
+[*]build[*]/
 dist/
 
 ### Vim template
