@@ -20,7 +20,7 @@ module.exports = {
   module: conf,
   watch: true,
   plugins: [
-    new CleanWebpackPlugin('dist'),
+    new CleanWebpackPlugin('standard_build'),
     new CopyWebpackPlugin([
       {
         from: './node_modules/ComponentsOi/dist/assets/fonts/*',
@@ -29,6 +29,10 @@ module.exports = {
       {
         from: `${process.env.ROOT_PATH}src/assets/`,
         to: `${process.env.ROOT_PATH}assets/`
+      },
+      {
+        from: `${process.env.ROOT_PATH}src/__standard__/index.html`,
+        to: `${process.env.ROOT_PATH}`
       }
     ]),
     new webpack.optimize.AggressiveMergingPlugin({
@@ -40,7 +44,7 @@ module.exports = {
       host: 'localhost',
       port: process.env.PORT || 8080,
       server: {
-        baseDir: ['dist']
+        baseDir: ['standard_build']
       }
     }),
     new BundleAnalyzerPlugin()
