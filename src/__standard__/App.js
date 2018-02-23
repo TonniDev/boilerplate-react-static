@@ -23,6 +23,11 @@ class App extends React.Component {
 
           <Routes />
 
+          <Bot
+            chatWindow={}
+
+          />
+
 
 
         </div>

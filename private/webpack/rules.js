@@ -3,14 +3,20 @@ const path = require('path');
 const pathName = path.resolve(`${__dirname}/..`);
 const fileName = `${process.env.ROOT_PATH}assets/[name]-[hash:5].[ext]`;
 
-const rules = {
-  rules: [
-    {
+const ifDev = (rules) => {
+  if (process.env.NODE_ENV === 'development') {
+    rules.rules.unshift({
       test: /\.js$/,
       use: ['source-map-loader'],
       enforce: 'pre',
       exclude: '/node_modules/'
-    },
+    });
+  }
+  return rules;
+};
+
+const rules = {
+  rules: [
     {
       test: /\.js$/,
       use: 'babel-loader',
@@ -43,4 +49,4 @@ const rules = {
   ]
 };
 
-module.exports = rules;
+module.exports = ifDev(rules);

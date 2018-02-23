@@ -65,16 +65,16 @@ function createRequestPromise(apiActionCreator, next, getState, dispatch) {
             if (params.errorType) {
               dispatch(actionWith(apiAction, {
                 type: params.errorType,
-                message: res.error || null,
-                status: res.status,
-                statusCode: res.statusCode,
-                statusText: res.statusText
+                message: err || res.error || null,
+                status: res ? res.status : 'Unknown error.',
+                statusCode: res ? res.statusCode : 500,
+                statusText: res ? res.statusText : 'Unknown error.'
               }));
             }
             if (isFunction(params.afterError)) {
               params.afterError({getState});
             }
-            reject();
+            reject(err);
           } else {
             const resBody = camelizeKeys(res.body);
             dispatch(actionWith(apiAction, {

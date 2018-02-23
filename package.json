@@ -4,10 +4,12 @@
   "description": "Boilerplate with routes, redux and styled-components for react static",
   "main": "./src/index.js",
   "scripts": {
-    "dev:static": "webpack -w --config webpack.dev.config.js",
-    "dev:standard": "webpack -w --config webpack.standard.config.js",
-    "build:static": "webpack --config webpack.prod.config.js -p",
-    "build:standard": "webpack --config webpack.prod.standard.config.js -p",
+    "start": "env-cmd ./.env npm run --silent project",
+    "project": "if [[ ${NODE_ENV} == \"development\" ]]; then if [[ ${OUTPUT} == \"static\" ]]; then echo \"${RED}NODE ENVIRONMENT${WHITE}: ${LBLUE}DEVELOPMENT${NC}\n${ORANGE}PROJECT OUTPUT${WHITE}: ${LBLUE}STATIC${NC}\" && echo \"${CYAN}Remember to change .env file when building for production!${NC}\" && npm run dev:static; elif [[ ${OUTPUT} == \"standard\" ]]; then echo \"${RED}NODE ENVIRONMENT${WHITE}: ${LBLUE}DEVELOPMENT${NC}\n${ORANGE}PROJECT OUTPUT${WHITE}: ${LBLUE}STANDARD${NC}\" && echo \"${CYAN}Remember to change .env file when building for production!${NC}\" && npm run dev:standard; else echo 'Invalid OUTPUT value. Must be static or standard.'; fi; elif [[ ${NODE_ENV} == \"production\" ]]; then if [[ ${OUTPUT} == \"static\" ]]; then echo \"${RED}NODE ENVIRONMENT${WHITE}: ${LBLUE}PRODUCTION${NC}\n${ORANGE}PROJECT OUTPUT${WHITE}: ${LBLUE}STATIC${NC}\" && echo \"${CYAN}Remember to change .env file when building for production!${NC}\" && npm run build:static; elif [[ ${OUTPUT} == \"standard\" ]]; then echo \"${RED}NODE ENVIRONMENT${WHITE}: ${LBLUE}PRODUCTION${NC}\n${ORANGE}PROJECT OUTPUT${WHITE}: ${LBLUE}STANDARD${NC}\" && echo \"${CYAN}Remember to change .env file when building for production!${NC}\" && npm run build:standard; else echo 'Invalid OUTPUT value. Must be static or standard.'; fi; else echo 'Invalid NODE_ENV value. Must be development or production.'; fi",
+    "dev:static": "webpack -w --config webpack.config.js",
+    "dev:standard": "webpack -w --config webpack.config.js",
+    "build:static": "webpack --config webpack.config.js -p",
+    "build:standard": "webpack --config webpack.config.js -p",
     "prepublish": "pkgfiles",
     "storybook": "start-storybook -p 6006 -c private/storybook",
     "build-storybook": "build-storybook -c private/storybook"
@@ -15,7 +17,6 @@
   "author": "TonniDev",
   "license": "MIT",
   "dependencies": {
-    "ComponentsOi": "git+https://github.com/OiSA/ComponentsOi.git",
     "bluebird": "^3.5.1",
     "dotenv": "^5.0.0",
     "history": "^4.7.2",
