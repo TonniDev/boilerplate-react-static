@@ -1,4 +1,4 @@
-// const path = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
@@ -7,9 +7,30 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const ss = require('../../src/__static__/ss_routes');
 
-const outputDir = process.env.OUTPUT === 'static' ? 'static' : 'standard';
+const outputDir = process.env.OUTPUT;
 
-const ifDev = (plugins) => {
+const copyPlugin = () => {
+  let copyHTML = [
+    {
+      from: './node_modules/ComponentsOi/dist/assets/fonts/*',
+      to: `${process.env.ROOT_PATH}assets/fonts/[name].[ext]`
+    },
+    {
+      from: `${process.env.ROOT_PATH}src/assets/`,
+      to: `${process.env.ROOT_PATH}assets/`
+    }
+  ];
+  if (process.env.OUTPUT === 'standard') {
+    copyHTML = copyHTML.concat({
+      from: `${process.env.ROOT_PATH}src/__${outputDir}__/index.html`,
+      to: `${process.env.ROOT_PATH}`
+    });
+  }
+  return copyHTML;
+};
+
+const ifDev = (arr) => {
+  let plugins = arr;
   if (process.env.OUTPUT === 'static') {
     const StaticSiteGenerator = new StaticSiteGeneratorPlugin({
       entry: 'main',
@@ -42,8 +63,9 @@ const ifDev = (plugins) => {
     const NoEmit = new webpack.NoEmitOnErrorsPlugin();
 
     plugins.splice(2, 0, UglyJS);
-    plugins.concat(IgnorePlugin, NameModules, NoEmit);
-  } else if (process.env.NODE_ENV === 'development') {
+    plugins = plugins.concat(IgnorePlugin, NameModules, NoEmit);
+  }
+  if (process.env.NODE_ENV === 'development') {
     const BrowserSync = new BrowserSyncPlugin({
       host: 'localhost',
       port: process.env.PORT || 8080,
@@ -52,23 +74,16 @@ const ifDev = (plugins) => {
       }
     });
     const BundleAnalyser = new BundleAnalyzerPlugin();
-    plugins.concat(BrowserSync, BundleAnalyser);
+    plugins = plugins.concat(BrowserSync, BundleAnalyser);
   }
   return plugins;
 };
 
-const plugins = [
-  new CleanWebpackPlugin(`${outputDir}_build`),
-  new CopyWebpackPlugin([
-    {
-      from: `./node_modules/ComponentsOi/${outputDir}_build/assets/fonts/*`,
-      to: `${process.env.ROOT_PATH}assets/fonts/[name].[ext]`
-    },
-    {
-      from: `${process.env.ROOT_PATH}src/assets/`,
-      to: `${process.env.ROOT_PATH}assets/`
-    }
-  ]),
+const initialPlugins = [
+  new CleanWebpackPlugin([`${outputDir}_build`], {
+    root: path.resolve(__dirname, '../../')
+  }),
+  new CopyWebpackPlugin(copyPlugin()),
   new webpack.optimize.AggressiveMergingPlugin({
     minSizeReduce: 1.5,
     moveToParents: true
@@ -76,4 +91,4 @@ const plugins = [
   new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
-module.exports = ifDev(plugins);
+module.exports = ifDev(initialPlugins);

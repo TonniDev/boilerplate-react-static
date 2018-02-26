@@ -9,6 +9,7 @@ const outputDir = process.env.OUTPUT === 'static' ? 'static' : 'standard';
 const project = process.env.OUTPUT === 'static' ? 'static' : 'standard';
 
 module.exports = {
+  context: __dirname,
   entry: `./src/__${project}__/index.js`,
   devtool: 'source-map',
   output: {

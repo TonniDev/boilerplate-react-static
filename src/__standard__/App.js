@@ -22,14 +22,6 @@ class App extends React.Component {
           </header>
 
           <Routes />
-
-          <Bot
-            chatWindow={}
-
-          />
-
-
-
         </div>
       </ThemeProvider>
     );
