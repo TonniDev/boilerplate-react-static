@@ -1,0 +1,100 @@
+0877825a0c80e01708f817e0e9cc1ca0
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+var _redux = require('redux');
+
+var _styledComponents = require('styled-components');
+
+var _reactRouterDom = require('react-router-dom');
+
+var _index = require('../actions/index');
+
+var Actions = _interopRequireWildcard(_index);
+
+var _index2 = require('../containers/themes/index');
+
+var _routes = require('./routes');
+
+var _routes2 = _interopRequireDefault(_routes);
+
+require('../config/styles/global-styles');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App() {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _styledComponents.ThemeProvider,
+        { theme: _index2.Default },
+        _react2.default.createElement(
+          'div',
+          { id: 'inner' },
+          _react2.default.createElement(
+            'header',
+            null,
+            _react2.default.createElement(
+              'nav',
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/' },
+                'Home'
+              ),
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/exemplo' },
+                'Exemplo'
+              )
+            )
+          ),
+          _react2.default.createElement(_routes2.default, null)
+        )
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    Content: state.Content
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(Actions, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC5qcyJdLCJuYW1lcyI6WyJBY3Rpb25zIiwiQXBwIiwiQ29tcG9uZW50IiwibWFwU3RhdGVUb1Byb3BzIiwic3RhdGUiLCJDb250ZW50IiwibWFwRGlzcGF0Y2hUb1Byb3BzIiwiZGlzcGF0Y2giXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7Ozs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7SUFBWUEsTzs7QUFDWjs7QUFDQTs7OztBQUNBOzs7Ozs7Ozs7Ozs7SUFFTUMsRzs7Ozs7Ozs7Ozs7NkJBQ0s7QUFDUCxhQUNFO0FBQUE7QUFBQSxVQUFlLHNCQUFmO0FBQ0U7QUFBQTtBQUFBLFlBQUssSUFBRyxPQUFSO0FBRUU7QUFBQTtBQUFBO0FBQ0U7QUFBQTtBQUFBO0FBQ0U7QUFBQTtBQUFBLGtCQUFNLElBQUcsR0FBVDtBQUFBO0FBQUEsZUFERjtBQUVFO0FBQUE7QUFBQSxrQkFBTSxJQUFHLFVBQVQ7QUFBQTtBQUFBO0FBRkY7QUFERixXQUZGO0FBU0U7QUFURjtBQURGLE9BREY7QUFlRDs7OztFQWpCZSxnQkFBTUMsUzs7QUFvQnhCLFNBQVNDLGVBQVQsQ0FBeUJDLEtBQXpCLEVBQWdDO0FBQzlCLFNBQU87QUFDTEMsYUFBU0QsTUFBTUM7QUFEVixHQUFQO0FBR0Q7O0FBRUQsU0FBU0Msa0JBQVQsQ0FBNEJDLFFBQTVCLEVBQXNDO0FBQ3BDLFNBQU8sK0JBQW1CUCxPQUFuQixFQUE0Qk8sUUFBNUIsQ0FBUDtBQUNEOztrQkFFYyx5QkFBUUosZUFBUixFQUF5Qkcsa0JBQXpCLEVBQTZDTCxHQUE3QyxDIiwiZmlsZSI6IkFwcC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQge2Nvbm5lY3R9IGZyb20gJ3JlYWN0LXJlZHV4JztcbmltcG9ydCB7YmluZEFjdGlvbkNyZWF0b3JzfSBmcm9tICdyZWR1eCc7XG5pbXBvcnQge1RoZW1lUHJvdmlkZXJ9IGZyb20gJ3N0eWxlZC1jb21wb25lbnRzJztcbmltcG9ydCB7TGlua30gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSc7XG5pbXBvcnQgKiBhcyBBY3Rpb25zIGZyb20gJy4uL2FjdGlvbnMvaW5kZXgnO1xuaW1wb3J0IHtEZWZhdWx0fSBmcm9tICcuLi9jb250YWluZXJzL3RoZW1lcy9pbmRleCc7XG5pbXBvcnQgUm91dGVzIGZyb20gJy4vcm91dGVzJztcbmltcG9ydCAnLi4vY29uZmlnL3N0eWxlcy9nbG9iYWwtc3R5bGVzJztcblxuY2xhc3MgQXBwIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgcmVuZGVyKCkge1xuICAgIHJldHVybiAoXG4gICAgICA8VGhlbWVQcm92aWRlciB0aGVtZT17RGVmYXVsdH0+XG4gICAgICAgIDxkaXYgaWQ9XCJpbm5lclwiPlxuXG4gICAgICAgICAgPGhlYWRlcj5cbiAgICAgICAgICAgIDxuYXY+XG4gICAgICAgICAgICAgIDxMaW5rIHRvPVwiL1wiPkhvbWU8L0xpbms+XG4gICAgICAgICAgICAgIDxMaW5rIHRvPVwiL2V4ZW1wbG9cIj5FeGVtcGxvPC9MaW5rPlxuICAgICAgICAgICAgPC9uYXY+XG4gICAgICAgICAgPC9oZWFkZXI+XG5cbiAgICAgICAgICA8Um91dGVzIC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9UaGVtZVByb3ZpZGVyPlxuICAgICk7XG4gIH1cbn1cblxuZnVuY3Rpb24gbWFwU3RhdGVUb1Byb3BzKHN0YXRlKSB7XG4gIHJldHVybiB7XG4gICAgQ29udGVudDogc3RhdGUuQ29udGVudFxuICB9O1xufVxuXG5mdW5jdGlvbiBtYXBEaXNwYXRjaFRvUHJvcHMoZGlzcGF0Y2gpIHtcbiAgcmV0dXJuIGJpbmRBY3Rpb25DcmVhdG9ycyhBY3Rpb25zLCBkaXNwYXRjaCk7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGNvbm5lY3QobWFwU3RhdGVUb1Byb3BzLCBtYXBEaXNwYXRjaFRvUHJvcHMpKEFwcCk7XG4iXX0=

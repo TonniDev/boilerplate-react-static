@@ -1,0 +1,57 @@
+9b67a91a00efb1aaa537576fd203b84a
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*
+import icon from './assets/images/favicon.ico'
+import {Helmet} from "react-helmet"
+*/
+
+var Template = function Template(props) {
+  return _react2.default.createElement(
+    'html',
+    { lang: 'pt-BR' },
+    _react2.default.createElement(
+      'head',
+      null,
+      _react2.default.createElement('link', { rel: 'icon', href: '/favicon.ico' }),
+      _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' }),
+      _react2.default.createElement('meta', { charSet: 'utf-8' }),
+      _react2.default.createElement(
+        'style',
+        null,
+        '\n              #outlet {\n                transition: opacity 0.35s ease-in-out;\n                opacity: 0;\n              }\n            '
+      )
+    ),
+    _react2.default.createElement(
+      'body',
+      null,
+      _react2.default.createElement(
+        'div',
+        { id: 'outlet' },
+        props.children
+      ),
+      _react2.default.createElement('script', { async: true, src: '/bundle.js' })
+    )
+  );
+};
+
+Template.propTypes = {
+  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node])
+};
+
+exports.default = Template;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlRlbXBsYXRlLmpzIl0sIm5hbWVzIjpbIlRlbXBsYXRlIiwicHJvcHMiLCJjaGlsZHJlbiIsInByb3BUeXBlcyIsIm9uZU9mVHlwZSIsImFycmF5T2YiLCJub2RlIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7OztBQUNBOzs7Ozs7QUFDQTs7Ozs7QUFLQSxJQUFNQSxXQUFXLFNBQVhBLFFBQVcsQ0FBQ0MsS0FBRCxFQUFXO0FBQzFCLFNBQ0U7QUFBQTtBQUFBLE1BQU0sTUFBSyxPQUFYO0FBQ0U7QUFBQTtBQUFBO0FBQ0UsOENBQU0sS0FBSSxNQUFWLEVBQWlCLE1BQUssY0FBdEIsR0FERjtBQUVFLDhDQUFNLE1BQUssVUFBWCxFQUFzQixTQUFRLDJFQUE5QixHQUZGO0FBR0UsOENBQU0sU0FBUSxPQUFkLEdBSEY7QUFJRTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBSkYsS0FERjtBQWdCRTtBQUFBO0FBQUE7QUFDRTtBQUFBO0FBQUEsVUFBSyxJQUFHLFFBQVI7QUFDR0EsY0FBTUM7QUFEVCxPQURGO0FBSUUsZ0RBQVEsV0FBUixFQUFjLEtBQUksWUFBbEI7QUFKRjtBQWhCRixHQURGO0FBeUJELENBMUJEOztBQTRCQUYsU0FBU0csU0FBVCxHQUFxQjtBQUNuQkQsWUFBVSxvQkFBVUUsU0FBVixDQUFvQixDQUM1QixvQkFBVUMsT0FBVixDQUFrQixvQkFBVUMsSUFBNUIsQ0FENEIsRUFFNUIsb0JBQVVBLElBRmtCLENBQXBCO0FBRFMsQ0FBckI7O2tCQU9lTixRIiwiZmlsZSI6IlRlbXBsYXRlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBQcm9wVHlwZXMgZnJvbSAncHJvcC10eXBlcyc7XG4vKlxuaW1wb3J0IGljb24gZnJvbSAnLi9hc3NldHMvaW1hZ2VzL2Zhdmljb24uaWNvJ1xuaW1wb3J0IHtIZWxtZXR9IGZyb20gXCJyZWFjdC1oZWxtZXRcIlxuKi9cblxuY29uc3QgVGVtcGxhdGUgPSAocHJvcHMpID0+IHtcbiAgcmV0dXJuIChcbiAgICA8aHRtbCBsYW5nPVwicHQtQlJcIj5cbiAgICAgIDxoZWFkPlxuICAgICAgICA8bGluayByZWw9XCJpY29uXCIgaHJlZj1cIi9mYXZpY29uLmljb1wiIC8+XG4gICAgICAgIDxtZXRhIG5hbWU9XCJ2aWV3cG9ydFwiIGNvbnRlbnQ9XCJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wLCBtYXhpbXVtLXNjYWxlPTEuMCwgdXNlci1zY2FsYWJsZT0wXCIgLz5cbiAgICAgICAgPG1ldGEgY2hhclNldD1cInV0Zi04XCIgLz5cbiAgICAgICAgPHN0eWxlPlxuICAgICAgICAgIHtcbiAgICAgICAgICAgIGBcbiAgICAgICAgICAgICAgI291dGxldCB7XG4gICAgICAgICAgICAgICAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjM1cyBlYXNlLWluLW91dDtcbiAgICAgICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgICAgICB9XG4gICAgICAgICAgICBgXG4gICAgICAgICAgfVxuICAgICAgICA8L3N0eWxlPlxuICAgICAgPC9oZWFkPlxuICAgICAgPGJvZHk+XG4gICAgICAgIDxkaXYgaWQ9XCJvdXRsZXRcIj5cbiAgICAgICAgICB7cHJvcHMuY2hpbGRyZW59XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8c2NyaXB0IGFzeW5jIHNyYz1cIi9idW5kbGUuanNcIiAvPlxuICAgICAgPC9ib2R5PlxuICAgIDwvaHRtbD5cbiAgKTtcbn07XG5cblRlbXBsYXRlLnByb3BUeXBlcyA9IHtcbiAgY2hpbGRyZW46IFByb3BUeXBlcy5vbmVPZlR5cGUoW1xuICAgIFByb3BUeXBlcy5hcnJheU9mKFByb3BUeXBlcy5ub2RlKSxcbiAgICBQcm9wVHlwZXMubm9kZVxuICBdKVxufTtcblxuZXhwb3J0IGRlZmF1bHQgVGVtcGxhdGU7XG4iXX0=

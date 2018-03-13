@@ -1,0 +1,146 @@
+1f51266992de5dc5cb30ba5f9888d9ec
+/* istanbul ignore next */'use strict';
+
+var cov_23h50svppj = function () {
+  var path = '/Users/antonio.carlos.pacca/Projetos/Oi/boilerplate-react-static/private/jest/polyfills.js',
+      hash = '946047251d65ccae8db796ff54166814f415c3a1',
+      Function = function () {}.constructor,
+      global = new Function('return this')(),
+      gcv = '__coverage__',
+      coverageData = {
+    path: '/Users/antonio.carlos.pacca/Projetos/Oi/boilerplate-react-static/private/jest/polyfills.js',
+    statementMap: {
+      '0': {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 7,
+          column: 1
+        }
+      },
+      '1': {
+        start: {
+          line: 5,
+          column: 2
+        },
+        end: {
+          line: 5,
+          column: 53
+        }
+      },
+      '2': {
+        start: {
+          line: 6,
+          column: 2
+        },
+        end: {
+          line: 6,
+          column: 60
+        }
+      },
+      '3': {
+        start: {
+          line: 10,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 24
+        }
+      },
+      '4': {
+        start: {
+          line: 14,
+          column: 0
+        },
+        end: {
+          line: 14,
+          column: 41
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {
+      '0': {
+        loc: {
+          start: {
+            line: 1,
+            column: 0
+          },
+          end: {
+            line: 7,
+            column: 1
+          }
+        },
+        type: 'if',
+        locations: [{
+          start: {
+            line: 1,
+            column: 0
+          },
+          end: {
+            line: 7,
+            column: 1
+          }
+        }, {
+          start: {
+            line: 1,
+            column: 0
+          },
+          end: {
+            line: 7,
+            column: 1
+          }
+        }],
+        line: 1
+      }
+    },
+    s: {
+      '0': 0,
+      '1': 0,
+      '2': 0,
+      '3': 0,
+      '4': 0
+    },
+    f: {},
+    b: {
+      '0': [0, 0]
+    },
+    _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+  },
+      coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  coverageData.hash = hash;
+  return coverage[path] = coverageData;
+}();
+
+cov_23h50svppj.s[0]++;
+if (typeof Promise === 'undefined') {
+  /* istanbul ignore next */cov_23h50svppj.b[0][0]++;
+  cov_23h50svppj.s[1]++;
+
+  // Rejection tracking prevents a common issue where React gets into an
+  // inconsistent state due to an error, but it gets swallowed by a Promise,
+  // and the user has no idea what causes React's erratic future behavior.
+  require('promise/lib/rejection-tracking').enable();
+  /* istanbul ignore next */cov_23h50svppj.s[2]++;
+  window.Promise = require('promise/lib/es6-extensions.js');
+} else /* istanbul ignore next */{
+  cov_23h50svppj.b[0][1]++;
+}
+
+// fetch() polyfill for making API calls.
+cov_23h50svppj.s[3]++;
+require('whatwg-fetch');
+
+// Object.assign() is commonly used with React.
+// It will use the native implementation if it's present and isn't buggy.
+/* istanbul ignore next */cov_23h50svppj.s[4]++;
+Object.assign = require('object-assign');
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvbHlmaWxscy5qcyJdLCJuYW1lcyI6WyJQcm9taXNlIiwicmVxdWlyZSIsImVuYWJsZSIsIndpbmRvdyIsIk9iamVjdCIsImFzc2lnbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxJQUFJLE9BQU9BLE9BQVAsS0FBbUIsV0FBdkIsRUFBb0M7QUFBQTtBQUFBOztBQUNsQztBQUNBO0FBQ0E7QUFDQUMsVUFBUSxnQ0FBUixFQUEwQ0MsTUFBMUM7QUFKa0M7QUFLbENDLFNBQU9ILE9BQVAsR0FBaUJDLFFBQVEsK0JBQVIsQ0FBakI7QUFDRCxDQU5EO0FBQUE7QUFBQTs7QUFRQTs7QUFDQUEsUUFBUSxjQUFSOztBQUVBO0FBQ0E7O0FBQ0FHLE9BQU9DLE1BQVAsR0FBZ0JKLFFBQVEsZUFBUixDQUFoQiIsImZpbGUiOiJwb2x5ZmlsbHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpZiAodHlwZW9mIFByb21pc2UgPT09ICd1bmRlZmluZWQnKSB7XG4gIC8vIFJlamVjdGlvbiB0cmFja2luZyBwcmV2ZW50cyBhIGNvbW1vbiBpc3N1ZSB3aGVyZSBSZWFjdCBnZXRzIGludG8gYW5cbiAgLy8gaW5jb25zaXN0ZW50IHN0YXRlIGR1ZSB0byBhbiBlcnJvciwgYnV0IGl0IGdldHMgc3dhbGxvd2VkIGJ5IGEgUHJvbWlzZSxcbiAgLy8gYW5kIHRoZSB1c2VyIGhhcyBubyBpZGVhIHdoYXQgY2F1c2VzIFJlYWN0J3MgZXJyYXRpYyBmdXR1cmUgYmVoYXZpb3IuXG4gIHJlcXVpcmUoJ3Byb21pc2UvbGliL3JlamVjdGlvbi10cmFja2luZycpLmVuYWJsZSgpO1xuICB3aW5kb3cuUHJvbWlzZSA9IHJlcXVpcmUoJ3Byb21pc2UvbGliL2VzNi1leHRlbnNpb25zLmpzJyk7XG59XG5cbi8vIGZldGNoKCkgcG9seWZpbGwgZm9yIG1ha2luZyBBUEkgY2FsbHMuXG5yZXF1aXJlKCd3aGF0d2ctZmV0Y2gnKTtcblxuLy8gT2JqZWN0LmFzc2lnbigpIGlzIGNvbW1vbmx5IHVzZWQgd2l0aCBSZWFjdC5cbi8vIEl0IHdpbGwgdXNlIHRoZSBuYXRpdmUgaW1wbGVtZW50YXRpb24gaWYgaXQncyBwcmVzZW50IGFuZCBpc24ndCBidWdneS5cbk9iamVjdC5hc3NpZ24gPSByZXF1aXJlKCdvYmplY3QtYXNzaWduJyk7XG4iXX0=

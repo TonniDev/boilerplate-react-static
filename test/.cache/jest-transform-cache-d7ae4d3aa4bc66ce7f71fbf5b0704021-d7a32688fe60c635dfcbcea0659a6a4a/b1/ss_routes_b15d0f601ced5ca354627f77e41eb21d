@@ -1,0 +1,7 @@
+e1fce1309410f35815f25b73f6699bed
+'use strict';
+
+module.exports = {
+  routes: ['/', '/exemplo']
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNzX3JvdXRlcy5qcyJdLCJuYW1lcyI6WyJtb2R1bGUiLCJleHBvcnRzIiwicm91dGVzIl0sIm1hcHBpbmdzIjoiOztBQUFBQSxPQUFPQyxPQUFQLEdBQWlCO0FBQ2ZDLFVBQVEsQ0FDTixHQURNLEVBRU4sVUFGTTtBQURPLENBQWpCIiwiZmlsZSI6InNzX3JvdXRlcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0ge1xuICByb3V0ZXM6IFtcbiAgICAnLycsXG4gICAgJy9leGVtcGxvJ1xuICBdXG59O1xuIl19

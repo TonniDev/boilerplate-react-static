@@ -1,0 +1,42 @@
+4b5eddbe5f1a77f529107b9a5b62d6eb
+'use strict';
+
+var path = require('path');
+
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+
+// you can use this file to add your custom webpack plugins, loaders and anything you like.
+// This is just the basic way to add additional webpack configurations.
+// For more information refer the docs: https://storybook.js.org/configurations/custom-webpack-config
+
+// IMPORTANT
+// When you add this file, we won't add the default configurations which is similar
+// to "React Create App". This only has babel loader to load JavaScript.
+
+module.exports = {
+  plugins: [new OpenBrowserPlugin({ url: 'http://localhost:6006' })],
+  module: {
+    rules: [{
+      test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
+      loaders: ['file-loader'],
+      include: path.resolve(__dirname + '/../..')
+    }, {
+      test: /\.less$/,
+      loaders: ['style-loader', 'css-loader', 'less-loader']
+    }, {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }, {
+      test: /\.json/,
+      use: ['json-loader']
+    }]
+  },
+  externals: {
+    jsdom: 'window',
+    cheerio: 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window',
+    'react/addons': true
+  }
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2suY29uZmlnLmpzIl0sIm5hbWVzIjpbInBhdGgiLCJyZXF1aXJlIiwiT3BlbkJyb3dzZXJQbHVnaW4iLCJtb2R1bGUiLCJleHBvcnRzIiwicGx1Z2lucyIsInVybCIsInJ1bGVzIiwidGVzdCIsImxvYWRlcnMiLCJpbmNsdWRlIiwicmVzb2x2ZSIsIl9fZGlybmFtZSIsInVzZSIsImV4dGVybmFscyIsImpzZG9tIiwiY2hlZXJpbyJdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFNQSxPQUFPQyxRQUFRLE1BQVIsQ0FBYjs7QUFHQSxJQUFNQyxvQkFBb0JELFFBQVEsNkJBQVIsQ0FBMUI7O0FBR0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQUUsT0FBT0MsT0FBUCxHQUFpQjtBQUNmQyxXQUFTLENBQ1AsSUFBSUgsaUJBQUosQ0FBc0IsRUFBQ0ksS0FBSyx1QkFBTixFQUF0QixDQURPLENBRE07QUFJZkgsVUFBUTtBQUNOSSxXQUFPLENBQ0w7QUFDRUMsWUFBTSxxQ0FEUjtBQUVFQyxlQUFTLENBQUMsYUFBRCxDQUZYO0FBR0VDLGVBQVNWLEtBQUtXLE9BQUwsQ0FBZ0JDLFNBQWhCO0FBSFgsS0FESyxFQU1MO0FBQ0VKLFlBQU0sU0FEUjtBQUVFQyxlQUFTLENBQUMsY0FBRCxFQUFpQixZQUFqQixFQUErQixhQUEvQjtBQUZYLEtBTkssRUFVTDtBQUNFRCxZQUFNLFFBRFI7QUFFRUssV0FBSyxDQUFDLGNBQUQsRUFBaUIsWUFBakI7QUFGUCxLQVZLLEVBY0w7QUFDRUwsWUFBTSxRQURSO0FBRUVLLFdBQUssQ0FBQyxhQUFEO0FBRlAsS0FkSztBQURELEdBSk87QUF5QmZDLGFBQVc7QUFDVEMsV0FBTyxRQURFO0FBRVRDLGFBQVMsUUFGQTtBQUdULHNDQUFrQyxJQUh6QjtBQUlULDhCQUEwQixRQUpqQjtBQUtULG9CQUFnQjtBQUxQO0FBekJJLENBQWpCIiwiZmlsZSI6IndlYnBhY2suY29uZmlnLmpzIiwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgcGF0aCA9IHJlcXVpcmUoJ3BhdGgnKTtcblxuXG5jb25zdCBPcGVuQnJvd3NlclBsdWdpbiA9IHJlcXVpcmUoJ29wZW4tYnJvd3Nlci13ZWJwYWNrLXBsdWdpbicpO1xuXG5cbi8vIHlvdSBjYW4gdXNlIHRoaXMgZmlsZSB0byBhZGQgeW91ciBjdXN0b20gd2VicGFjayBwbHVnaW5zLCBsb2FkZXJzIGFuZCBhbnl0aGluZyB5b3UgbGlrZS5cbi8vIFRoaXMgaXMganVzdCB0aGUgYmFzaWMgd2F5IHRvIGFkZCBhZGRpdGlvbmFsIHdlYnBhY2sgY29uZmlndXJhdGlvbnMuXG4vLyBGb3IgbW9yZSBpbmZvcm1hdGlvbiByZWZlciB0aGUgZG9jczogaHR0cHM6Ly9zdG9yeWJvb2suanMub3JnL2NvbmZpZ3VyYXRpb25zL2N1c3RvbS13ZWJwYWNrLWNvbmZpZ1xuXG4vLyBJTVBPUlRBTlRcbi8vIFdoZW4geW91IGFkZCB0aGlzIGZpbGUsIHdlIHdvbid0IGFkZCB0aGUgZGVmYXVsdCBjb25maWd1cmF0aW9ucyB3aGljaCBpcyBzaW1pbGFyXG4vLyB0byBcIlJlYWN0IENyZWF0ZSBBcHBcIi4gVGhpcyBvbmx5IGhhcyBiYWJlbCBsb2FkZXIgdG8gbG9hZCBKYXZhU2NyaXB0LlxuXG5tb2R1bGUuZXhwb3J0cyA9IHtcbiAgcGx1Z2luczogW1xuICAgIG5ldyBPcGVuQnJvd3NlclBsdWdpbih7dXJsOiAnaHR0cDovL2xvY2FsaG9zdDo2MDA2J30pXG4gIF0sXG4gIG1vZHVsZToge1xuICAgIHJ1bGVzOiBbXG4gICAgICB7XG4gICAgICAgIHRlc3Q6IC9cXC4ocG5nfHdvZmZ8d29mZjJ8ZW90fHR0Znxzdmd8anBnKSQvLFxuICAgICAgICBsb2FkZXJzOiBbJ2ZpbGUtbG9hZGVyJ10sXG4gICAgICAgIGluY2x1ZGU6IHBhdGgucmVzb2x2ZShgJHtfX2Rpcm5hbWV9Ly4uLy4uYClcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHRlc3Q6IC9cXC5sZXNzJC8sXG4gICAgICAgIGxvYWRlcnM6IFsnc3R5bGUtbG9hZGVyJywgJ2Nzcy1sb2FkZXInLCAnbGVzcy1sb2FkZXInXVxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgdGVzdDogL1xcLmNzcyQvLFxuICAgICAgICB1c2U6IFsnc3R5bGUtbG9hZGVyJywgJ2Nzcy1sb2FkZXInXVxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgdGVzdDogL1xcLmpzb24vLFxuICAgICAgICB1c2U6IFsnanNvbi1sb2FkZXInXVxuICAgICAgfVxuICAgIF1cbiAgfSxcbiAgZXh0ZXJuYWxzOiB7XG4gICAganNkb206ICd3aW5kb3cnLFxuICAgIGNoZWVyaW86ICd3aW5kb3cnLFxuICAgICdyZWFjdC9saWIvRXhlY3V0aW9uRW52aXJvbm1lbnQnOiB0cnVlLFxuICAgICdyZWFjdC9saWIvUmVhY3RDb250ZXh0JzogJ3dpbmRvdycsXG4gICAgJ3JlYWN0L2FkZG9ucyc6IHRydWVcbiAgfVxufTtcbiJdfQ==
