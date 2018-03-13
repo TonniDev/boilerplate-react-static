@@ -1,0 +1,1 @@
+{"version":3,"sources":["center.js"],"names":["center","title","align","height","width"],"mappings":";;;;;AAAA,IAAMA,SAAS;AACbC,SAAO,sBADM;AAEbC,SAAO,eAFM;AAGbC,UAAQ,KAHK;AAIbC,SAAO;AAJM,CAAf;kBAMeJ,M","file":"center.js","sourcesContent":["const center = {\n  title: 'An example component',\n  align: 'center center',\n  height: '80%',\n  width: 400\n};\nexport default center;\n"]}

@@ -1,0 +1,18 @@
+66b7157f9e620f4cd8264ef3b7133422
+'use strict';
+
+if (typeof Promise === 'undefined') {
+  // Rejection tracking prevents a common issue where React gets into an
+  // inconsistent state due to an error, but it gets swallowed by a Promise,
+  // and the user has no idea what causes React's erratic future behavior.
+  require('promise/lib/rejection-tracking').enable();
+  window.Promise = require('promise/lib/es6-extensions.js');
+}
+
+// fetch() polyfill for making API calls.
+require('whatwg-fetch');
+
+// Object.assign() is commonly used with React.
+// It will use the native implementation if it's present and isn't buggy.
+Object.assign = require('object-assign');
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvbHlmaWxscy5qcyJdLCJuYW1lcyI6WyJQcm9taXNlIiwicmVxdWlyZSIsImVuYWJsZSIsIndpbmRvdyIsIk9iamVjdCIsImFzc2lnbiJdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFJLE9BQU9BLE9BQVAsS0FBbUIsV0FBdkIsRUFBb0M7QUFDbEM7QUFDQTtBQUNBO0FBQ0FDLFVBQVEsZ0NBQVIsRUFBMENDLE1BQTFDO0FBQ0FDLFNBQU9ILE9BQVAsR0FBaUJDLFFBQVEsK0JBQVIsQ0FBakI7QUFDRDs7QUFFRDtBQUNBQSxRQUFRLGNBQVI7O0FBRUE7QUFDQTtBQUNBRyxPQUFPQyxNQUFQLEdBQWdCSixRQUFRLGVBQVIsQ0FBaEIiLCJmaWxlIjoicG9seWZpbGxzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaWYgKHR5cGVvZiBQcm9taXNlID09PSAndW5kZWZpbmVkJykge1xuICAvLyBSZWplY3Rpb24gdHJhY2tpbmcgcHJldmVudHMgYSBjb21tb24gaXNzdWUgd2hlcmUgUmVhY3QgZ2V0cyBpbnRvIGFuXG4gIC8vIGluY29uc2lzdGVudCBzdGF0ZSBkdWUgdG8gYW4gZXJyb3IsIGJ1dCBpdCBnZXRzIHN3YWxsb3dlZCBieSBhIFByb21pc2UsXG4gIC8vIGFuZCB0aGUgdXNlciBoYXMgbm8gaWRlYSB3aGF0IGNhdXNlcyBSZWFjdCdzIGVycmF0aWMgZnV0dXJlIGJlaGF2aW9yLlxuICByZXF1aXJlKCdwcm9taXNlL2xpYi9yZWplY3Rpb24tdHJhY2tpbmcnKS5lbmFibGUoKTtcbiAgd2luZG93LlByb21pc2UgPSByZXF1aXJlKCdwcm9taXNlL2xpYi9lczYtZXh0ZW5zaW9ucy5qcycpO1xufVxuXG4vLyBmZXRjaCgpIHBvbHlmaWxsIGZvciBtYWtpbmcgQVBJIGNhbGxzLlxucmVxdWlyZSgnd2hhdHdnLWZldGNoJyk7XG5cbi8vIE9iamVjdC5hc3NpZ24oKSBpcyBjb21tb25seSB1c2VkIHdpdGggUmVhY3QuXG4vLyBJdCB3aWxsIHVzZSB0aGUgbmF0aXZlIGltcGxlbWVudGF0aW9uIGlmIGl0J3MgcHJlc2VudCBhbmQgaXNuJ3QgYnVnZ3kuXG5PYmplY3QuYXNzaWduID0gcmVxdWlyZSgnb2JqZWN0LWFzc2lnbicpO1xuIl19

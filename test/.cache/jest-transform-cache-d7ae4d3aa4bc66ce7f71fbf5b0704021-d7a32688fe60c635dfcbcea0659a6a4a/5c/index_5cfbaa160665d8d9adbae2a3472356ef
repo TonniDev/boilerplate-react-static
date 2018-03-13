@@ -1,0 +1,29 @@
+3416777ab2842e1b25ea6bde0eb9d8a5
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxDevtools = require('redux-devtools');
+
+var _reduxDevtoolsLogMonitor = require('redux-devtools-log-monitor');
+
+var _reduxDevtoolsLogMonitor2 = _interopRequireDefault(_reduxDevtoolsLogMonitor);
+
+var _reduxDevtoolsDockMonitor = require('redux-devtools-dock-monitor');
+
+var _reduxDevtoolsDockMonitor2 = _interopRequireDefault(_reduxDevtoolsDockMonitor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _reduxDevtools.createDevTools)(_react2.default.createElement(
+  _reduxDevtoolsDockMonitor2.default,
+  { toggleVisibilityKey: 'ctrl-h', changePositionKey: 'ctrl-w' },
+  _react2.default.createElement(_reduxDevtoolsLogMonitor2.default, null)
+));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOzs7O0FBQ0E7O0FBQ0E7Ozs7QUFDQTs7Ozs7O2tCQUVlLG1DQUNiO0FBQUE7QUFBQSxJQUFhLHFCQUFvQixRQUFqQyxFQUEwQyxtQkFBa0IsUUFBNUQ7QUFDRTtBQURGLENBRGEsQyIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQge2NyZWF0ZURldlRvb2xzfSBmcm9tICdyZWR1eC1kZXZ0b29scyc7XG5pbXBvcnQgTG9nTW9uaXRvciBmcm9tICdyZWR1eC1kZXZ0b29scy1sb2ctbW9uaXRvcic7XG5pbXBvcnQgRG9ja01vbml0b3IgZnJvbSAncmVkdXgtZGV2dG9vbHMtZG9jay1tb25pdG9yJztcblxuZXhwb3J0IGRlZmF1bHQgY3JlYXRlRGV2VG9vbHMoXG4gIDxEb2NrTW9uaXRvciB0b2dnbGVWaXNpYmlsaXR5S2V5PVwiY3RybC1oXCIgY2hhbmdlUG9zaXRpb25LZXk9XCJjdHJsLXdcIj5cbiAgICA8TG9nTW9uaXRvciAvPlxuICA8L0RvY2tNb25pdG9yPlxuKTtcbiJdfQ==

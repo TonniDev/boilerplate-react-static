@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["reducer","Content"],"mappings":";;;;;;AAAA;;AACA;;;;;;AAEA,IAAMA,UAAU,4BAAgB;AAC9BC;AAD8B,CAAhB,CAAhB;;kBAIeD,O","file":"index.js","sourcesContent":["import { combineReducers } from 'redux';\nimport Content from './Content';\n\nconst reducer = combineReducers({\n  Content\n});\n\nexport default reducer;\n"]}

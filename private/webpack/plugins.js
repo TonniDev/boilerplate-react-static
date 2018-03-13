@@ -12,10 +12,6 @@ const outputDir = process.env.OUTPUT;
 const copyPlugin = () => {
   let copyHTML = [
     {
-      from: './node_modules/ComponentsOi/dist/assets/fonts/*',
-      to: `${process.env.ROOT_PATH}assets/fonts/[name].[ext]`
-    },
-    {
       from: `${process.env.ROOT_PATH}src/assets/`,
       to: `${process.env.ROOT_PATH}assets/`
     }

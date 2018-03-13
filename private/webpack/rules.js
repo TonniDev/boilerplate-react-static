@@ -25,18 +25,27 @@ const rules = {
     {
       test: /\.(jpg|png|svg)/,
       include: pathName,
+      exclude: '/assets/fonts/',
       use: {
         loader: 'file-loader',
         options: {name: fileName}
       }
     },
     {
-      test: /\.(eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+      test: /\.(eot|ttf|woff|woff2|svg)(\?v=\d+\.\d+\.\d+)?$/,
       include: pathName,
       use: {
         loader: 'file-loader',
         options: {name: fileName}
       }
+    },
+    {
+      test: /\.less$/,
+      use: [
+        {loader: 'style-loader'},
+        {loader: 'css-loader'},
+        {loader: 'less-loader'}
+      ]
     },
     {
       test: /\.(ico|otf|pdf)/,
