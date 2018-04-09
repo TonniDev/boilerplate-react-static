@@ -1,11 +1,9 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const pathName = path.resolve(`${__dirname}/..`);
 const fontsName = path.resolve(`${__dirname}/`);
 const fileName = `${process.env.ROOT_PATH}assets/[name]-[hash:5].[ext]`;
-
-const extractLESS = new ExtractTextPlugin('chatbot.styles.css');
 
 const ifDev = (rules) => {
   if (process.env.NODE_ENV === 'development') {
@@ -16,7 +14,7 @@ const ifDev = (rules) => {
       exclude: '/node_modules/'
     });
   }
-  return {rules, extractLESS};
+  return {rules};
 };
 
 const rules = {
@@ -36,30 +34,24 @@ const rules = {
       }
     },
     {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
-    },
-    {
       test: /\.less$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              url: false,
-              minimize: true,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: true
-            }
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            url: false,
+            minimize: true,
+            sourceMap: true
           }
-        ]
-      })
+        },
+        {
+          loader: 'less-loader',
+          options: {
+            sourceMap: true
+          }
+        }
+      ]
     },
     {
       test: /\.(ico|otf|pdf)/,
