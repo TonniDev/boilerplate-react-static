@@ -1,7 +1,11 @@
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const pathName = path.resolve(`${__dirname}/..`);
+const fontsName = path.resolve(`${__dirname}/`);
 const fileName = `${process.env.ROOT_PATH}assets/[name]-[hash:5].[ext]`;
+
+const extractLESS = new ExtractTextPlugin('chatbot.styles.css');
 
 const ifDev = (rules) => {
   if (process.env.NODE_ENV === 'development') {
@@ -12,7 +16,7 @@ const ifDev = (rules) => {
       exclude: '/node_modules/'
     });
   }
-  return rules;
+  return {rules, extractLESS};
 };
 
 const rules = {
@@ -25,7 +29,41 @@ const rules = {
     {
       test: /\.(jpg|png|svg)/,
       include: pathName,
-      exclude: '/assets/fonts/',
+      exclude: `${pathName}/assets/fonts/`,
+      use: {
+        loader: 'file-loader',
+        options: {name: fileName}
+      }
+    },
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    },
+    {
+      test: /\.less$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              minimize: true,
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      })
+    },
+    {
+      test: /\.(ico|otf|pdf)/,
+      include: pathName,
       use: {
         loader: 'file-loader',
         options: {name: fileName}
@@ -33,23 +71,7 @@ const rules = {
     },
     {
       test: /\.(eot|ttf|woff|woff2|svg)(\?v=\d+\.\d+\.\d+)?$/,
-      include: pathName,
-      use: {
-        loader: 'file-loader',
-        options: {name: fileName}
-      }
-    },
-    {
-      test: /\.less$/,
-      use: [
-        {loader: 'style-loader'},
-        {loader: 'css-loader'},
-        {loader: 'less-loader'}
-      ]
-    },
-    {
-      test: /\.(ico|otf|pdf)/,
-      include: pathName,
+      include: fontsName,
       use: {
         loader: 'file-loader',
         options: {name: fileName}

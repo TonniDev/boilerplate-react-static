@@ -1,5 +1,5 @@
 export {default as config} from './config';
-export {default as GlobalStyles} from './styles/global-styles';
+// export {default as GlobalStyles} from './styles/global-styles';
 export {
   rem,
   subtract1Px,

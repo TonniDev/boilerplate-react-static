@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const ss = require('../../src/__static__/ss_routes');
+const {extractLESS} = require('./rules');
 
 const outputDir = process.env.OUTPUT;
 
@@ -76,6 +77,7 @@ const ifDev = (arr) => {
 };
 
 const initialPlugins = [
+  extractLESS,
   new CleanWebpackPlugin([`${outputDir}_build`], {
     root: path.resolve(__dirname, '../../')
   }),

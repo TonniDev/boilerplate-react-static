@@ -2,7 +2,7 @@ const path = require('path');
 
 require('dotenv').config();
 
-const rules = require('./private/webpack/rules');
+const {rules} = require('./private/webpack/rules');
 const plugins = require('./private/webpack/plugins');
 
 const outputDir = process.env.OUTPUT === 'static' ? 'static' : 'standard';

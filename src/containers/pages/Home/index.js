@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {Text} from '../../../components';
 import * as Actions from '../../../actions';
 
-import '../../../config/styles/global-styles';
+// import '../../../config/styles/global-styles';
 
 class Home extends React.Component {
   constructor(props) {

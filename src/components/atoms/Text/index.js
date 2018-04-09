@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './index.less';
+import './index.less';
 
 // Component Styles
 const TextType = (props) => {
