@@ -9,7 +9,7 @@ import '@storybook/addon-console';
 import store from '../../src/store';
 import './test';
 
-import '../../src/config/styles/global-styles.js';
+import '../../src/config/styles/global-styles.less';
 
 const req = require.context('../../src/components', true, /.story.js$/);
 setAddon(infoAddon);

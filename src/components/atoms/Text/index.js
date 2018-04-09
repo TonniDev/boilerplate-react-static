@@ -30,7 +30,7 @@ const TextType = (props) => {
 
 // Component Core
 const Text = (props) => {
-  return <TextType {...props}>{props.children}</TextType>;
+  return <TextType className="atom__text" {...props}>{props.children}</TextType>;
 };
 // Component Props
 Text.propTypes = {

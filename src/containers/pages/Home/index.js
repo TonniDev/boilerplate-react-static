@@ -44,7 +44,7 @@ class Home extends React.Component {
         </ul>
         <hr />
         <hr />
-        <Text type="p" className="atom__text">Some random text here.</Text>
+        <Text type="p">Some random text here.</Text>
         <Text type="span">Some random text here.</Text>
         <Text type="strong">Some random text here.</Text>
       </div>);
