@@ -34,9 +34,9 @@ const StyledText = styled(TextType)`
   font-family: ${prop('fontFamily')};
   font-weight: ${props => props.fontWeight && `${mixins.fontWeight(props.fontWeight)}`};
   font-size: ${props => props.fontSize && `${mixins.calcSize(props.fontSize)}`};
-  color: ${ifProp('fontColor', prop('fontColor'))};
+  color: ${ifProp('fontcolor', prop('fontcolor'))};
   text-align:${ifProp('align', prop('align'))};
-  line-height: ${ifProp('lineHeight', prop('lineHeight'))};
+  line-height: ${ifProp('lineheight', prop('lineheight'))};
   ${ifProp('uppercase', 'text-transform: uppercase;')};
   ${ifProp('lowercase', 'text-transform: lowercase;')};
   margin: ${props => props.margin && `${mixins.setSizes(props.margin)}`};
@@ -51,7 +51,7 @@ const StyledText = styled(TextType)`
     background: -moz-linear-gradient(${mixins.gradient(props.gradient.direction, props.gradient.colors)});
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;`};
-  ${switchProp('themeColor', {
+  ${switchProp('themecolor', {
     primary: css`color: ${prop('theme.colors.primary')};`,
     secondary: css`color: ${prop('theme.colors.secondary')};`,
     success: css`color: ${prop('theme.colors.success')};`,
@@ -86,12 +86,12 @@ Text.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  themeColor: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'warning', 'info', 'light', 'dark', 'link', 'white', 'black']),
+  themecolor: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'warning', 'info', 'light', 'dark', 'link', 'white', 'black']),
   type: PropTypes.oneOf(['label', 'span', 'strong', 'abbr', 'legend', 'small', 'sub', 'sup', 'p']),
   align: PropTypes.oneOf(['left', 'center', 'right', 'justify']),
   margin: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   padding: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  lineHeight: PropTypes.number,
+  lineheight: PropTypes.number,
   gradient: PropTypes.shape({
     direction: PropTypes.string,
     colors: PropTypes.array
@@ -99,7 +99,7 @@ Text.propTypes = {
   fontFamily: PropTypes.string,
   fontWeight: PropTypes.oneOf(['Light', 'Regular', 'Medium', 'Bold']),
   fontSize: PropTypes.oneOf([-2, -1, 1, 2, 3, 4, 5, 6]),
-  fontColor: PropTypes.string
+  fontcolor: PropTypes.string
 };
 
 Text.defaultProps = {
@@ -108,11 +108,11 @@ Text.defaultProps = {
   fontFamily: 'Simplon',
   fontWeight: 'Regular',
   fontSize: 1,
-  fontColor: '#222222',
-  themeColor: 'primary',
+  fontcolor: '#222222',
+  themecolor: 'primary',
   margin: 0,
   padding: 0,
-  lineHeight: 0
+  lineheight: 0
 };
 
 export default Text;
