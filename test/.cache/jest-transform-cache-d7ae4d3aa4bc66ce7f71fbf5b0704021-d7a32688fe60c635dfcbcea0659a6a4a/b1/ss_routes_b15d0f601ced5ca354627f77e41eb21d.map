@@ -1,1 +1,0 @@
-{"version":3,"sources":["ss_routes.js"],"names":["module","exports","routes"],"mappings":";;AAAAA,OAAOC,OAAP,GAAiB;AACfC,UAAQ,CACN,GADM,EAEN,UAFM;AADO,CAAjB","file":"ss_routes.js","sourcesContent":["module.exports = {\n  routes: [\n    '/',\n    '/exemplo'\n  ]\n};\n"]}

@@ -1,8 +1,41 @@
 # Boilerplate para desenvolvimento de projetos estáticos ou SPA (standard)
 
-Estrutura com _atomic design_, _styled components_ e _redux_.  
+Estrutura com _atomic design_, _redux_ e _styled components_ ou _less_.  
 
-## .ENV
+## Primeiros passos
+Clone o projeto
+```shell
+git clone https://github.com/OiSA/boilerplate-react-static.git
+cd boilerplate-react-static
+```
+Instale o env-cmd global.
+```shell
+npm i -g env-cmd
+```
+Garanta que todas as branches e tags estejam no seu repositório local
+```shell
+git fetch --all --tags --prune
+```
+
+### LESS e Styled Components
+Para utilizar o projeto com LESS dê checkout na branch LESS
+```shell
+git checkout LESS
+```
+Ou utilize a tag v1.2-less na branch _develop_
+```shell
+git checkout tags/v1.2-less
+```
+Para utilizar o projeto com Styled Components dê checkout na branch styled-components
+```shell
+git checkout styled-components
+```
+Ou utilize a tag v1.1-styled-components na branch _develop_
+```shell
+git checkout tags/v1.1-styled-components
+```
+
+### .ENV
 Crie o arquivo .env na raiz do projeto.
 
 > exemplo de configuração com ambiente de desenvolvimento para projeto estático.

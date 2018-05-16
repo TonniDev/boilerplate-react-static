@@ -1,1 +1,0 @@
-{"version":3,"sources":["FileStub.js"],"names":["module","exports"],"mappings":";;AAAAA,OAAOC,OAAP,GAAiB,gBAAjB","file":"FileStub.js","sourcesContent":["module.exports = 'test-file-stub';\n"]}

@@ -1,9 +1,0 @@
-6346dac432c8cbf291461c6d02a1beea
-'use strict';
-
-require('@storybook/addon-actions/register');
-
-require('storybook-addon-specifications/register');
-
-require('@storybook/addon-links/register');
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkZG9ucy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBOztBQUNBOztBQUNBIiwiZmlsZSI6ImFkZG9ucy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnQHN0b3J5Ym9vay9hZGRvbi1hY3Rpb25zL3JlZ2lzdGVyJztcbmltcG9ydCAnc3Rvcnlib29rLWFkZG9uLXNwZWNpZmljYXRpb25zL3JlZ2lzdGVyJztcbmltcG9ydCAnQHN0b3J5Ym9vay9hZGRvbi1saW5rcy9yZWdpc3Rlcic7XG4iXX0=

@@ -1,6 +1,7 @@
 ### User template
 *_build/
 dist/
+package-lock.json
 
 ### Vim template
 # Swap
