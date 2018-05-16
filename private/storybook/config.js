@@ -1,19 +1,20 @@
 import React from 'react';
-import {StaticRouter, BrowserRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {storiesOf, configure, addDecorator, setAddon} from '@storybook/react';
+import {configure, addDecorator, setAddon} from '@storybook/react';
 import infoAddon, {setDefaults} from '@storybook/addon-info';
-import {setConsoleOptions} from '@storybook/addon-console';
-import {action} from '@storybook/addon-actions';
-import {linkTo} from '@storybook/addon-links';
-import {specs, describe, it} from 'storybook-addon-specifications';
-import {mount} from 'enzyme';
-import expect from 'expect';
-import globalStyle from '../../src/config/styles/global-styles';
+import Adapter from 'enzyme-adapter-react-16';
+import {configure as EnzymeConfigure} from 'enzyme';
+import '@storybook/addon-console';
+import store from '../../src/store';
+import './test';
 
-const store = storiesOf({}, module);
-const req = require.context('../../src/components', true, /.stories.js$/);
+import '../../src/config/styles/global-styles.js';
+
+const req = require.context('../../src/components', true, /.story.js$/);
 setAddon(infoAddon);
+
+EnzymeConfigure({adapter: new Adapter()});
 
 function loadStories() {
   req.keys()

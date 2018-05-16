@@ -1,6 +1,12 @@
 # Boilerplate para desenvolvimento de projetos estáticos ou SPA (standard)
 
-Estrutura com _atomic design_, _styled components_ e _redux_.  
+Estrutura com _atomic design_, _styled components_ e _redux_.
+
+##Dependencias globais
+Instale o _env-cmd_ global.
+```shell
+npm i -g env-cmd
+```  
 
 ## .ENV
 Crie o arquivo .env na raiz do projeto.

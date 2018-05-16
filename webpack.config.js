@@ -7,6 +7,7 @@ const plugins = require('./private/webpack/plugins');
 
 const outputDir = process.env.OUTPUT === 'static' ? 'static' : 'standard';
 const project = process.env.OUTPUT === 'static' ? 'static' : 'standard';
+const watch = process.env.NODE_ENV === 'development';
 
 module.exports = {
   context: __dirname,
@@ -18,6 +19,6 @@ module.exports = {
     libraryTarget: 'umd' // options: var, amd, umd, commonjs, commonjs2, this
   },
   module: rules,
-  watch: true,
+  watch,
   plugins
 };

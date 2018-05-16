@@ -22,6 +22,7 @@ const Template = (props) => {
             `
           }
         </style>
+        <link rel="stylesheet" href="styles.css" />
       </head>
       <body>
         <div id="outlet">

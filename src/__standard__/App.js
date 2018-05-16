@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ThemeProvider} from 'styled-components';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import * as Actions from '../actions/index';
 import {Default} from '../containers/themes/index';
 import Routes from './routes';
@@ -38,4 +38,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

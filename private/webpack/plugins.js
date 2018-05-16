@@ -5,16 +5,14 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const historyApiFallback = require('connect-history-api-fallback');
 const ss = require('../../src/__static__/ss_routes');
 
 const outputDir = process.env.OUTPUT;
 
 const copyPlugin = () => {
   let copyHTML = [
-    {
-      from: './node_modules/ComponentsOi/dist/assets/fonts/*',
-      to: `${process.env.ROOT_PATH}assets/fonts/[name].[ext]`
-    },
     {
       from: `${process.env.ROOT_PATH}src/assets/`,
       to: `${process.env.ROOT_PATH}assets/`
@@ -66,13 +64,17 @@ const ifDev = (arr) => {
     plugins = plugins.concat(IgnorePlugin, NameModules, NoEmit);
   }
   if (process.env.NODE_ENV === 'development') {
-    const BrowserSync = new BrowserSyncPlugin({
+    const config = {
       host: 'localhost',
       port: process.env.PORT || 8080,
       server: {
         baseDir: [`${outputDir}_build`]
       }
-    });
+    };
+    if (process.env.OUTPUT === 'standard') {
+      config.middleware = [historyApiFallback()];
+    }
+    const BrowserSync = new BrowserSyncPlugin(config);
     const BundleAnalyser = new BundleAnalyzerPlugin();
     plugins = plugins.concat(BrowserSync, BundleAnalyser);
   }
@@ -82,6 +84,9 @@ const ifDev = (arr) => {
 const initialPlugins = [
   new CleanWebpackPlugin([`${outputDir}_build`], {
     root: path.resolve(__dirname, '../../')
+  }),
+  new ExtractTextWebpackPlugin({
+    filename: 'styles.css'
   }),
   new CopyWebpackPlugin(copyPlugin()),
   new webpack.optimize.AggressiveMergingPlugin({

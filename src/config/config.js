@@ -1,4 +1,5 @@
 import {Map} from 'immutable';
+import path from 'path';
 
 const baseConfig = {
   all: {
@@ -11,7 +12,8 @@ const baseConfig = {
     port: process.env.PORT || 8080,
     isBrowser: typeof window !== 'undefined',
     isServer: typeof window === 'undefined',
-    apiUrl: 'http://dpd.oiwip.com.br/api/v1'
+    apiUrl: 'http://dpd.oiwip.com.br/api/v1',
+    publicPath: path.resolve(__dirname, '../assets')
   },
   test: {},
   development: {},

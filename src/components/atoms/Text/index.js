@@ -9,7 +9,7 @@ import * as mixins from '../../../config';
 const TextType = (props) => {
   switch (props.type) {
     case 'span':
-      return <span>{props.children}</span>;
+      return <span {...props}>{props.children}</span>;
     case 'strong':
       return <strong {...props}>{props.children}</strong>;
     case 'abbr':
@@ -26,7 +26,7 @@ const TextType = (props) => {
       return <label {...props}>{props.children}</label>;
     default:
     case 'p':
-      return <p>{props.children}</p>;
+      return <p {...props}>{props.children}</p>;
   }
 };
 
@@ -84,7 +84,7 @@ const Text = (props) => {
 Text.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
+    PropTypes.node
   ]),
   themecolor: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'warning', 'info', 'light', 'dark', 'link', 'white', 'black']),
   type: PropTypes.oneOf(['label', 'span', 'strong', 'abbr', 'legend', 'small', 'sub', 'sup', 'p']),
@@ -105,7 +105,7 @@ Text.propTypes = {
 Text.defaultProps = {
   type: 'p',
   align: 'left',
-  fontFamily: 'Simplon',
+  fontFamily: 'SimplonHeadline',
   fontWeight: 'Regular',
   fontSize: 1,
   fontcolor: '#222222',

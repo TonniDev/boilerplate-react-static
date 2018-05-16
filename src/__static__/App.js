@@ -3,27 +3,24 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ThemeProvider} from 'styled-components';
 import * as Actions from '../actions/index';
-import {Default} from '../containers/themes/index';
 import Routes from './routes';
 import '../config/styles/global-styles';
+import {Default} from '../containers/themes';
+
+// import '../config/styles/global-styles.less';
 
 class App extends React.Component {
   render() {
     return (
       <ThemeProvider theme={Default}>
         <div id="inner">
-
           <header>
             <nav>
               <a href="/">Home</a>
               <a href="/exemplo">Exemplo</a>
             </nav>
           </header>
-
           <Routes />
-
-
-
         </div>
       </ThemeProvider>
     );
