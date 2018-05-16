@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import * as Actions from '../../../actions';
 
+import './index.less';
+
 class Exemplo extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class Exemplo extends React.Component {
   render() {
     return (
       <div>
-        <h1>Rota de exemplo.</h1>
+        <h1 className="title__main">Rota de exemplo.</h1>
       </div>
     );
   }

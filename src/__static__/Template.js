@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-/*
-import icon from './assets/images/favicon.ico'
-import {Helmet} from "react-helmet"
-*/
+// import icon from './assets/images/favicon.ico'
+// import {Helmet} from "react-helmet"
+import path from 'path';
+
+const root = path.resolve(__dirname, './');
 
 const Template = (props) => {
   return (
@@ -15,17 +16,17 @@ const Template = (props) => {
         <style>
           {
             `
-              #outlet {
+              #application {
                 transition: opacity 0.35s ease-in-out;
                 opacity: 0;
               }
             `
           }
         </style>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href={`${root}styles.css`} />
       </head>
       <body>
-        <div id="outlet">
+        <div id="application">
           {props.children}
         </div>
         <script async src="/bundle.js" />

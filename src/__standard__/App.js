@@ -1,29 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {ThemeProvider} from 'styled-components';
 import {Link, withRouter} from 'react-router-dom';
 import * as Actions from '../actions/index';
-import {Default} from '../containers/themes/index';
 import Routes from './routes';
-import '../config/styles/global-styles';
+import '../config/styles/global-styles.less';
 
 class App extends React.Component {
   render() {
     return (
-      <ThemeProvider theme={Default}>
-        <div id="inner">
+      <div id="inner">
 
-          <header>
-            <nav>
-              <Link to="/">Home</Link>
-              <Link to="/exemplo">Exemplo</Link>
-            </nav>
-          </header>
+        <header>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/exemplo">Exemplo</Link>
+          </nav>
+        </header>
 
-          <Routes />
-        </div>
-      </ThemeProvider>
+        <Routes />
+      </div>
     );
   }
 }

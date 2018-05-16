@@ -10,7 +10,7 @@ import App from './App';
 
 /* Client render (optional) */
 if (typeof document !== 'undefined') {
-  const outlet = document.getElementById('outlet');
+  const outlet = document.getElementById('application');
   render(
     <Provider store={store}>
       <BrowserRouter>
